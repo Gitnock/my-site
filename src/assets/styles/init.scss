@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
+
+// DARK THEME
+$c1_dark: #161823;
+$c2_dark: #202330;
+$c3_dark: #2f3247;
+$c4_dark: #464a65;
+$c5_dark: #B7BBD5;
+// LIGHT THEME
+$c1_light: white;
+$c2_light: #F4F4F4;
+$c3_light: #B7BBD5;
+// -- fonts
+$cg_back: #25514d;
+$cg_front: #00cd69;
+
+
+// FONTS
+.font-12 {
+  font-size: 12px;
+}
+.font-24 {
+  font-size: 24px;
+}
+.roboto-r {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+.roboto-m {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.roboto-b {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+}
+
+.roboto-mono-l{
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+}
+.roboto-mono-r {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+}
+.roboto-mono-m {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+}
+.roboto-mono-b {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+}
+
+
+html,
+body,
+#app {
+  height: 100%;
+  overflow-y: auto;
+  margin: 0 !important;
+  background-color: $c1_light;
+}
+
+.vs-input {
+  border: none;
+  border-radius: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 100% !important;
+}
+.clickable {
+  cursor: pointer;
+}
+
+//animation
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-52%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorToDanger {
+  0% {
+    border-color: red;
+  }
+  100% {
+    border-color: rgba(183, 187, 213, 0.4);
+  }
+}
+
+
+@keyframes fadeIn {
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+.fadeInAnim{
+  animation: fadeIn 1s;
+}
+
+
+// .fade-enter-active{
+  
+//   position: fixed;
+// }
+// .fade-leave-active {
+//   transition: opacity .5s;
+// }
+
+.avatar{
+  border-radius: 50% !important;
+}
+div.vs-avatar{
+  border: none !important;
+}
+//loading
+div.vs-loading {
+  z-index: 0 !important;
+}
+
+
+
+
+//BUTTONS
+.btn-drop:active {
+  transform: translateY(1px);
+}
+.btn-div {
+  border: none;
+  padding: 0px;
+  background: transparent;
+}
+.link-btn {
+  text-decoration: none;
+  color: inherit;
+}
+
+//interface / input
+
