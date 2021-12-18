@@ -21,16 +21,18 @@
       <div class="section-bot" ref="sbot">
         <div class="container-bot">
           <div
-            class="card-container"
+            class="cards-container"
             v-for="project in projects"
             :key="project.id"
           >
-            <div class="card" :style="{background: project.color}">
-                <div class="card-top">
-
-                </div>
+            <div class="card-container">
+              <div class="card" :style="{ background: project.color }">
+                <div class="card-top"></div>
+              </div>
+              <div class="card" :style="{ background: project.color2 }">
+                fdfddf
+              </div>
             </div>
-            <div class="card" :style="{background: project.color2}">fdfddf</div>
           </div>
         </div>
       </div>
@@ -60,7 +62,7 @@ let projects = [
     name: 'projects',
     url: '/projects',
     color: '#eaf2fc',
-    color2: '#eaf2fc',
+    color2: '#7997aa',
     img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-snowflake-1-202111?wid=394&hei=430&fmt=jpeg&qlt=95&.v=1635286448000',
     img2: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-magsafe-1-202111?wid=241&hei=384&fmt=jpeg&qlt=95&.v=1635286450000',
     id: 0,
@@ -68,8 +70,8 @@ let projects = [
   {
     name: 'projects',
     url: '/projects',
-    color: '',
-    color2: '',
+    color: '#eeeffe',
+    color2: '#8f8fad',
     img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-airtag-2-202111?wid=209&hei=388&fmt=jpeg&qlt=95&.v=1635286450000',
     img2: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-airtag-2-202111?wid=209&hei=388&fmt=jpeg&qlt=95&.v=1635286450000',
     id: 1,
@@ -94,6 +96,8 @@ let projects = [
 }
 .index-main {
   height: 94%;
+  width: 100%;
+  // overflow: hidden;
   // overflow-y: auto;
   // scroll-behavior: smooth;
 }
@@ -249,14 +253,19 @@ let projects = [
   color: white;
   font-size: 16px;
 }
+.cards-container {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  max-width: 1328px;
+  // overflow: hidden;
+}
 .card-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .card {
-  width: 321px;
+  min-width: 442px;
+  height: 628px;
   margin: 8px;
   border: none;
   border-radius: 16px;
@@ -270,44 +279,19 @@ let projects = [
   color: #464a65;
   font-size: 36px;
 }
-.card-mid {
-  margin: 4px 0;
-}
-.card-mid-title {
-  color: $c5_dark;
-  font-size: 21px;
-  text-align: left;
-}
 
 // BOT
 .section-bot {
-  padding: 60px 90px 0px 90px;
+  // padding: 60px 90px 0px 90px;
   padding: 48px 0;
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 .container-bot {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.subtitle-small-index {
-  font-size: 20px;
-  max-width: 454px;
-  padding: 4px 12px;
-  text-align: center;
-  margin-bottom: 32px;
-  color: $c3_dark;
-}
-
-.card-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.card {
-  width: 482px;
-  height: 648px;
 }
 
 //FOOTER
@@ -384,16 +368,20 @@ let projects = [
   .title-index {
     font-size: 52px;
   }
-  .request-btn-desktop {
-    display: none;
+  .card {
+    min-width: 300px;
+    height: 418px;
   }
-
-  .request-btn-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 6px 0px;
-    animation: 0.3s ease-out 0s 1 slideInFromTop;
+  .cards-container {
+    width: 100%;
+  }
+  .container-bot {
+    width: 100%;
+  }
+  .card-container {
+    overflow-x: auto;
+    width: auto;
+    padding: 0 12px 12px;
   }
 }
 @media only screen and (max-width: 607px) {
@@ -402,15 +390,6 @@ let projects = [
   // }
   .auth-btn {
     margin-right: 0;
-  }
-  .nav-request-btn {
-    display: none;
-  }
-  .signup-btn {
-    display: block;
-  }
-  .signin-btn {
-    display: none;
   }
   .title-index {
     font-size: 48px;

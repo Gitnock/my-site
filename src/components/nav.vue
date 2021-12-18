@@ -9,13 +9,20 @@
             </div>
             <div class="right-nav">
                 <a class="btn-div about-btn font-12 roboto-m clickable link-btn" href="">about</a>
-                <div>
+                <div class="social-links">
                     <a class="btn-div git-button clickable link-btn" href="https://github.com/Gitnock">
                         <i class="bx bxl-github font-24"></i>
                     </a>
                      <a class="btn-div clickable link-btn" href="https://dribbble.com/Mulira">
                         <i class="bx bxl-dribbble font-24"></i>
                     </a>
+                </div>
+                <div class="social-links-m">
+                    <button class="mobile-menu btn-div">
+                        <h3 class="roboto-m">
+                            MENU
+                        </h3>
+                    </button>
                 </div>
             </div>
         </div>
@@ -65,5 +72,37 @@
 }
 .git-button {
     margin: 0 36px;
+}
+.social-links-m {
+    display: none;
+    margin: 0;
+}
+.mobile-menu {
+    background: transparent;
+    border-radius: 12px;
+    padding: 0 12px;
+    &:active{
+        background: black;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .nav-container {
+        width: 100%;
+    }
+    .about-btn {
+        display: none;
+    }
+    .social-links{
+        display: none;
+        // padding: 12px 0 0 0
+    }
+    .social-links-m {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    
 }
 </style>
