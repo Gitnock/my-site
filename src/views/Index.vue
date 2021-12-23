@@ -329,7 +329,7 @@ let projects = [
 }
 
 // MOBILE
-@media only screen and (max-width: 705px) {
+@media only screen and (max-width: 902px) {
   .title-index {
     font-size: 52px;
   }
@@ -347,9 +347,11 @@ let projects = [
     overflow-x: auto;
     width: auto;
     padding: 0 12px 12px;
+    display: flex;
+    justify-content: center;
   }
 }
-@media only screen and (max-width: 607px) {
+@media only screen and (max-width: 644px) {
   .title-index {
     font-size: 48px;
   }
@@ -363,6 +365,9 @@ let projects = [
   }
   .footer-rights {
     display: none;
+  }
+  .card-container{
+    justify-content: start;
   }
 }
 @media screen and (max-height: 900px) {
