@@ -328,43 +328,8 @@ let projects = [
   }
 }
 
-// THEME
-// @mixin theme($theme-name, $c1, $c2, $c3,$c4,$title) {
-//   .#{$theme-name} {
-//     background: $c1;
-//     transition: background-color 0.3s ease;
-//     .title-index{
-//        color: $title;
-//        transition: color 0.3s ease;
-//       }
-//     .title-mid{
-//       background-color: $c2;
-//       transition: background-color 0.3s ease;
-//     }
-//     .card {
-//       background-color: $c2;
-//       transition: background-color 0.3s ease;
-//       .card-top-title{
-//         color: $c3;
-//       }
-//       .card-mid-title{
-//         color: $c4;
-//       }
-//     }
-//     .indicator-container{
-//       background-color: $c2;
-//       transition: background-color 0.2s ease;
-//     }
-//   }
-// }
-// @include theme(dark, $c1_dark, $c2_dark, $c4_dark,$c5_dark,white);
-// @include theme(light, $c1_light, $c2_light, $c3_light,$c4_dark,black);
-
 // MOBILE
 @media only screen and (max-width: 705px) {
-  // .part1 {
-  //   height: auto !important;
-  // }
   .title-index {
     font-size: 52px;
   }
@@ -385,12 +350,6 @@ let projects = [
   }
 }
 @media only screen and (max-width: 607px) {
-  // .part1 {
-  //   height: auto !important;
-  // }
-  .auth-btn {
-    margin-right: 0;
-  }
   .title-index {
     font-size: 48px;
   }
