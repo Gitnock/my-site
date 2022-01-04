@@ -6,15 +6,14 @@ $c1_dark: #161823;
 $c2_dark: #202330;
 $c3_dark: #2f3247;
 $c4_dark: #464a65;
-$c5_dark: #B7BBD5;
+$c5_dark: #b7bbd5;
 // LIGHT THEME
 $c1_light: white;
-$c2_light: #F4F4F4;
-$c3_light: #B7BBD5;
+$c2_light: #f4f4f4;
+$c3_light: #b7bbd5;
 // -- fonts
 $cg_back: #25514d;
 $cg_front: #00cd69;
-
 
 // FONTS
 .font-12 {
@@ -36,7 +35,7 @@ $cg_front: #00cd69;
   font-weight: 900;
 }
 
-.roboto-mono-l{
+.roboto-mono-l {
   font-family: 'Roboto Mono', monospace;
   font-weight: 300;
 }
@@ -52,7 +51,10 @@ $cg_front: #00cd69;
   font-family: 'Roboto Mono', monospace;
   font-weight: 700;
 }
-
+.mono-28 {
+  font-size: 28px;
+  @extend .roboto-mono-m;
+}
 
 html,
 body,
@@ -60,6 +62,8 @@ body,
   height: 100%;
   overflow-y: auto;
   margin: 0 !important;
+  display: flex;
+  flex-direction: column;
   background-color: $c1_light;
 }
 
@@ -73,62 +77,6 @@ body,
 .clickable {
   cursor: pointer;
 }
-
-//animation
-@keyframes slideInFromTop {
-  0% {
-    transform: translateY(-52%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes colorToDanger {
-  0% {
-    border-color: red;
-  }
-  100% {
-    border-color: rgba(183, 187, 213, 0.4);
-  }
-}
-
-
-@keyframes fadeIn {
-  0%{
-    opacity:0;
-  }
-  100%{
-    opacity:1;
-  }
-}
-
-.fadeInAnim{
-  animation: fadeIn 1s;
-}
-
-
-// .fade-enter-active{
-  
-//   position: fixed;
-// }
-// .fade-leave-active {
-//   transition: opacity .5s;
-// }
-
-.avatar{
-  border-radius: 50% !important;
-}
-div.vs-avatar{
-  border: none !important;
-}
-//loading
-div.vs-loading {
-  z-index: 0 !important;
-}
-
-
-
 
 //BUTTONS
 .btn-drop:active {
@@ -145,4 +93,3 @@ div.vs-loading {
 }
 
 //interface / input
-
