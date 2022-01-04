@@ -1,13 +1,18 @@
 <template>
   <div id="app">
      <NavBar />
-    <router-view/>
+     <router-view/>
+    
   </div>
 </template>
 
-<script  setup lang="ts" >
+<script setup lang="ts" >
 import NavBar from './components/nav.vue'  
 </script>
 <style lang="scss">
 @import './assets/styles/init.scss';
+.router-view {
+  // flex: 1;
+  // height: 100%;
+}
 </style>

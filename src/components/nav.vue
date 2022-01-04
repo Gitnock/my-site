@@ -1,14 +1,14 @@
 <template>
-    <div class="nav-main">
+    <header class="nav-main">
         <div class="nav-container">
             <div class="left-nav">
                 
-                <a class="btn-div clickable link-btn" href="/">
+                <router-link class="btn-div clickable link-btn" to="/">
                         <h2 class="roboto-b title-logo">Enock lubega</h2>
-                    </a>
+                    </router-link>
             </div>
             <div class="right-nav">
-                <a class="btn-div about-btn font-12 roboto-m clickable link-btn" href="">about</a>
+                <router-link class="btn-div about-btn font-12 roboto-m clickable link-btn" to="/about">about</router-link>
                 <div class="social-links">
                     <a class="btn-div git-button clickable link-btn" href="https://github.com/Gitnock">
                         <i class="bx bxl-github font-24"></i>
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 </template>
 
 <script lang="ts" >
