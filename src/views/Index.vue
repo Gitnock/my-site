@@ -93,6 +93,10 @@ let testData = [
 }
 .bot-container {
 }
+.bot-content{
+  display: flex;
+  justify-content: center;
+}
 .card-container {
   display: flex;
   overflow-x: auto;
