@@ -4,17 +4,13 @@
       <div class="top-container">
         <div class="top-content">
           <div class="top-title roboto-mono-m">Hello World!</div>
-          <div class="top-subtitle mono-28">
-            A Front End Developer with a passion for Design
+          <div class="top-subtitle roboto-mono-m font-48">
+            A Software Developer with a passion for Design
           </div>
         </div>
       </div>
       <div class="scroll-indicator-wrapper">
-        <div class="indicator-container">
-          <div class="indicator-body">
-            <i class="bx bxs-circle bx-fade-down indicator"></i>
-          </div>
-        </div>
+        <h3 class="text-indicator font-16 roboto-mono-m">Featured Projects</h3>
       </div>
     </div>
     <div class="index-bot">
@@ -25,7 +21,7 @@
               <div class="card-top"></div>
             </div>
             <div class="card" :style="{ background: project.color2 }">
-              fdfddf
+              fdfddfe
             </div>
           </div>
         </div>
@@ -57,15 +53,16 @@ let testData = [
 ];
 </script>
 
-<style lang="scss" scroped>
+<style lang="scss" scoped>
 @import '../assets/styles/flexbox.scss';
 @import '../assets/styles/init.scss';
-// TOP
+/* TOP */
 .top-container {
   padding: 48px 0;
   display: flex;
   justify-content: center;
-  // overflow: hidden;
+  align-items: center;
+  height: 100%;
 }
 .top-content {
   padding: 60px 0;
@@ -77,13 +74,13 @@ let testData = [
   margin: 0 0 12px 0;
 }
 .top-subtitle {
-  max-width: 610px;
+  max-width: 836px;
   margin: auto;
   text-align: center;
   margin-bottom: 8px;
 }
 
-// BOT
+/* BOT */
 .index-bot {
   margin: 32px 0;
   display: flex;
@@ -93,13 +90,14 @@ let testData = [
 }
 .bot-container {
 }
-.bot-content{
+.bot-content {
   display: flex;
   justify-content: center;
 }
 .card-container {
   display: flex;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
 }
 .card {
   min-width: 442px;
@@ -108,9 +106,10 @@ let testData = [
   border: none;
   border-radius: 16px;
   box-shadow: none;
+  scroll-snap-align: center;
 }
 
-// MOBILE
+/* MOBILE */
 @media only screen and (max-width: 902px) {
   .top-content {
     padding: 48px 12px;
