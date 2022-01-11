@@ -1,20 +1,40 @@
 <template>
   <div class="p-main">
     <div class="p-top">
-      <div class="top-container">
-        <div class="info-content">fd3f</div>
-        <div class="stack-content">dfdf</div>
+      <div class="top-container flex-center">
+        <div class="info-content">
+          <div class="font-52 roboto-mono-b info-title">Who am I</div>
+          <div class="font-28 roboto-mono-m info-subtitle">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+            adipisci cum eaque?
+          </div>
+        </div>
+        <div class="stack-content">
+          <div class="stack-item flex-center">
+            <div class="font-16 roboto-mono-m">Vuejs</div>
+          </div>
+          <div class="stack-item flex-center">
+            <div class="font-16 roboto-mono-m">Firestore</div>
+          </div>
+          <div class="stack-item flex-center">
+            <div class="font-16 roboto-mono-m">Cpp</div>
+          </div>
+          <div class="stack-item flex-center">
+            <div class="font-16 roboto-mono-m">Python</div>
+          </div>
+          <div class="stack-item flex-center">
+            <div class="font-16 roboto-mono-m">MySQL</div>
+          </div>
+          <div class="stack-item flex-center">
+            <div class="font-16 roboto-mono-m">User Experience (UX)</div>
+          </div>
+        </div>
       </div>
-
-    </div>
-    <!-- <section class="scroll-indicator-wrapper">
-      <div class="indicator-container">
-        <i class="bx bxs-circle bx-fade-down indicator"></i>
+      <div class="scroll-indicator-wrapper">
+        <h3 class="text-indicator font-16 roboto-mono-m">Projects TimeLine</h3>
       </div>
-    </section> -->
-    <div class="about-bot">
-      <h1>dff</h1>
     </div>
+    <div class="about-bot"></div>
   </div>
 </template>
 
@@ -22,50 +42,64 @@
 
 <style lang="scss" scoped>
 @import '../assets/styles/flexbox.scss';
-.about-main {
-  height: 100%;
-}
-
 /* TOP */
-.about-top {
-  height: 100% !important;
-  background-color: blanchedalmond;
-  display: flex;
-  justify-content: center;
-}
 .top-container {
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
 }
 .info-content {
   width: 478px;
-  height: 254px;
-  background-color: cadetblue;
+  padding: 12px 32px;
+}
+.info-subtitle {
+  margin: 8px 0 0 0;
 }
 .stack-content {
   width: 459px;
-  height: 193px;
-  background-color: royalblue;
-}
-/* SCROLL */
-.scroll-indicator-wrapper {
+  padding: 12px;
   display: flex;
-  justify-content: center;
-  height: 8% !important;
+  flex-wrap: wrap;
+  // justify-content: flex-start;
+  gap: 12px;
 }
-.indicator-container {
-  background-color: black;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  padding: 4px 4px 4px 4px;
-  border-radius: 12px;
+.stack-item {
+  background-color: #f9fbfc;
+  border-radius: 8px;
+  height: 59px;
+  padding: 0 24px;
 }
-
 
 /* BOTTOM */
 .about-bot {
-  height:900px;
+  height: 900px;
+}
+
+@media only screen and (max-width: 902px) {
+  .top-container {
+    flex-wrap: wrap;
+  }
+  .p-top {
+    padding: 0 0 42px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .info-title {
+    font-size: 32px;
+    text-align: center;
+  }
+  .info-subtitle {
+    font-size: 18px;
+    text-align: center;
+    margin: 12px 0 0 0;
+  }
+  .stack-content {
+    justify-content: center;
+  }
+  .stack-item {
+    height: 32px;
+    padding: 4 12px;
+    font-size: 12px;
+  }
 }
 </style>
