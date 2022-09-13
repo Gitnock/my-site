@@ -1,39 +1,33 @@
 <template>
   <div class="project-main">
     <div class="project-top">
-      <div class="top-content">
-        <div class="top-title font-52 roboto-mono-b">App Title</div>
-        <div class="top-subtitle font-28 roboto-mono-m">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate
-          dapibus convallis
-        </div>
-        <div class="tech-content">
-          <div class="tech-item">
-            <div>css</div>
-          </div>
-          <div class="tech-item">
-            <div>firestore</div>
-          </div>
-          <div class="tech-item">
-            <div>vuejs</div>
-          </div>
-        </div>
-      </div>
+      <ProjectInfoVue/>
+    </div> 
+    <div class="project-bot">
+      <ProjectListVue/>
     </div>
-    <div class="project-bot"></div>
   </div>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import ProjectInfoVue from '../components/ProjectInfo.vue';
+  import ProjectListVue from '../components/ProjectList.vue';
+</script>
 <style lang="scss" scoped>
 @import '../assets/styles/flexbox.scss';
 .project-main {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 /* TOP */
 .project-top {
   display: flex;
   justify-content: center;
-  background-color: bisque;
+  margin: 200px 0 0 0;
+}
+.project-bot {
+  width: 900px;
 }
 .top-content {
   max-width: 772px;
