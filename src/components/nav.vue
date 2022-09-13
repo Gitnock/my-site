@@ -8,7 +8,7 @@
                     </router-link>
             </div>
             <div class="right-nav">
-                <router-link class="btn-div about-btn font-12 roboto-m clickable link-btn" to="/about">about</router-link>
+                <router-link class="btn-div about-btn font-12 roboto-m clickable link-btn" to="/about">about WIP</router-link>
                 <div class="social-links">
                     <a class="btn-div git-button clickable link-btn" href="https://github.com/Gitnock">
                         <i class="bx bxl-github font-24"></i>
