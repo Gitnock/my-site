@@ -37,7 +37,7 @@
 
 @media only screen and (max-width: 572px) {
   .project-img {
-    width: 314px;
+    width: 324px;
     height: 400px;
   }
 
