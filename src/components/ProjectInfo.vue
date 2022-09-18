@@ -18,6 +18,7 @@ import Skills from './skills.vue';
 <style lang="scss" scoped>
 .project-info {
   max-width: 664px;
+  margin: 0 12px;
 }
 .top-title {
   text-align: center;

@@ -27,7 +27,7 @@
   margin: 200px 0 0 0;
 }
 .project-bot {
-  width: 900px;
+  max-width: 900px;
 }
 .top-content {
   max-width: 772px;

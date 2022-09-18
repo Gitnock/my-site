@@ -3,7 +3,7 @@
     <img
       class="project-img"
       alt="image of project"
-      src="https://images.unsplash.com/photo-1661638581169-88440e0f4fa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+      src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
     />
     <!-- <div class="font-12 roboto-mono-l">yo whats the food taste like homie</div> -->
   </div>
@@ -19,8 +19,8 @@
   justify-content: center;
 }
 .project-img {
-  width: 900px;
-  height: 772px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   background-color: #f9fbfc;
   border-radius: 8px;
   margin-bottom: 4px 0 0 0;
@@ -29,18 +29,15 @@
 /* MOBILE */
 @media only screen and (max-width: 902px) {
   .project-img {
-    width: 514px;
-    height: 600px;
-
+    width: 100%;
+    // height: 600px;
+  }
+  .project-item-container{
+    width: 100%;
+    background-color: antiquewhite;
   }
 }
 
-@media only screen and (max-width: 572px) {
-  .project-img {
-    width: 324px;
-    height: 400px;
-  }
 
-}
 
 </style>
