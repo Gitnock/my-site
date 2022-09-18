@@ -17,12 +17,12 @@
       <div class="bot-container">
         <div class="bot-content" v-for="project in testData" :key="project.id">
           <div class="card-container" v-if="project.id % 2 === 0">
-            <div class="card" :style="{ background: project.color }">
+            <div class="card card-line" :style="{ background: project.color }">
               <div class="card-top">
                 <div class="img">fgfg</div>
               </div>
               <div class="card-bot">
-                <div class="card-title roboto-mono-m">app Title</div>
+                <div class="card-title roboto-mono-m">{{project.title}}</div>
                 <div class="card-desc roboto-mono-b">
                   Information about the app I made
                 </div>
@@ -31,17 +31,18 @@
                 >
               </div>
             </div>
-            <div class="card" :style="{ background: project.color2 }">
-              fdfddfe
+            <div class="card" :style="{ background: project.color2 , backgroundImage: project.img}">
+              <img :src="project.img
+              " alt="" class="img">
             </div>
           </div>
           <div class="card-container" v-else>
             <div class="card" :style="{ background: project.color2 }">
               app image
             </div>
-            <div class="card" :style="{ background: project.color }">
+            <div class="card card-line" :style="{ background: project.color }">
               <div class="card-top">
-                <div class="img"></div>
+                <div class="img">image</div>
               </div>
               <div class="card-bot">
                 <div class="card-title roboto-mono-m">app Title</div>
@@ -65,17 +66,17 @@
 <script setup lang="ts">
 let testData = [
   {
-    name: 'projects',
-    url: '/projects',
+    title: 'app Title',
+    desc:'',
     color: '#eaf2fc',
     color2: '#7997aa',
-    img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-snowflake-1-202111?wid=394&hei=430&fmt=jpeg&qlt=95&.v=1635286448000',
+    img: 'https://cdn.dribbble.com/userupload/3597739/file/original-896f235c9ee484a4b0d0276ae7d9f064.png?compress=1&resize=1024x768&vertical=center',
     img2: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-magsafe-1-202111?wid=241&hei=384&fmt=jpeg&qlt=95&.v=1635286450000',
     id: 0,
   },
   {
-    name: 'projects',
-    url: '/projects',
+    title: 'app Title',
+    desc:'',
     color: '#eeeffe',
     color2: '#8f8fad',
     img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-airtag-2-202111?wid=209&hei=388&fmt=jpeg&qlt=95&.v=1635286450000',
@@ -129,6 +130,12 @@ let testData = [
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 }
+
+.img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
 .card {
   width: 442px;
   height: 628px;
@@ -140,6 +147,10 @@ let testData = [
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+}
+.card-line{
+  border: 4px solid black;
 }
 .card-top {
   display: flex;
@@ -186,6 +197,7 @@ let testData = [
   }
   .card {
     min-width: 300px;
+    width: 300px;
     height: 418px;
   }
   .card-container {

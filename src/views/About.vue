@@ -36,13 +36,16 @@
         <div class="timeline--display">
           <div class="timeline__component">
             <div class="timeline__date timeline__date--right roboto-mono-r">
-              August 30, 2017
+              
             </div>
           </div>
           <div class="timeline__middle">
             <div class="timeline__point"></div>
           </div>
           <div class="timeline__component timeline__component--bg">
+            <div class="timeline-date-container">
+              <div class="timeline-mobile-date roboto-mono-m">August 30, 2017</div>
+            </div>
             <h2 class="timeline__title roboto-mono-m">Published First Video</h2>
             <p class="timeline__paragraph roboto-mono-m">
               My first YouTube video was a tutorial on how to build a
@@ -55,6 +58,9 @@
         </div>
         <div class="timeline--display">
           <div class="timeline__component timeline__component--bg">
+            <div class="timeline-date-container">
+              <div class="timeline-mobile-date roboto-mono-m">August 30, 2017</div>
+            </div>
             <h2 class="timeline__title roboto-mono-m">5,000,000 Subscribers Q&A</h2>
             <p class="timeline__paragraph roboto-mono-m">
               To celebrate 5,000 subscribers, I published a video answering some
@@ -214,5 +220,32 @@
     padding: 4 12px;
     font-size: 12px;
   }
+}
+@media screen and (max-width: 524px) {
+  
+  .timeline{
+    gap: 12px;
+  }
+  .timeline--display {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.timeline__component{
+  margin: 0;
+}
+.timeline__point{
+  display: none;
+}
+.timeline__date{
+  display: none;
+}
+.timeline-date-container{
+  display: flex;
+  padding: 12px 0;
+}
+.timeline-mobile-date{
+  font-size: 12px;
+}
 }
 </style>
