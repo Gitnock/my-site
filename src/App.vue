@@ -7,7 +7,12 @@
 </template>
 
 <script setup lang="ts" >
-import NavBar from './components/nav.vue'  
+import NavBar from './components/nav.vue';
+import { useStore } from '@/store/index';
+
+
+
+
 </script>
 <style lang="scss">
 @import './assets/styles/init.scss';

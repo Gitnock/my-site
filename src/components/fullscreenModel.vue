@@ -63,7 +63,7 @@ const props = defineProps({
 
 .full-close-container {
   position: absolute;
-  bottom: 42px;
+  top: 42px;
   right: 22px;
 }
 .close-circle {
