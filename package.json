@@ -4,14 +4,16 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview --host"
   },
   "dependencies": {
+    "firebase": "^9.10.0",
+    "pinia": "^2.0.22",
     "vue": "^3.2.26",
-    "vue-router": "^4.0.12",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@types/node": "^18.7.18",
     "@vitejs/plugin-vue": "^1.10.2",
     "@vue/cli-plugin-router": "^4.5.15",
     "sass": "^1.45.1",
