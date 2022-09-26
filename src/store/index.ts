@@ -1,3 +1,4 @@
+import type Project from '@/dataTemplates/project';
 import { defineStore } from 'pinia';
 
 // useStore could be anything like useUser, useCart
@@ -10,10 +11,11 @@ export const useStore = defineStore('main', {
     page: 'home',
     combo: 0,
     onlinePage: 'lobby',
-    projects:[]
+    projectId: "",
+    projects: [] as Project[],
   }),
   getters: {
-    getPage(state): String {
+    getPage(state): string {
         return state.page;
     },
     getHighscore(state): number {
@@ -27,7 +29,14 @@ export const useStore = defineStore('main', {
     },
     getProjects(state){
         return state.projects;
+    },
+    getFeatured(state){
+        return state.projects.filter(proj => proj.isFeature === true );
+    },
+    getProject(state){
+      return state.projects.find(proj => proj.id === state.projectId)
     }
+    
   },
   actions: {
     updateOnlinePage(page: string) {
@@ -43,6 +52,12 @@ export const useStore = defineStore('main', {
     updateCombo(combo: number) {
       this.combo = combo;
       localStorage.setItem('combo', combo.toString());
+    },
+    addProject(project: Project){
+      this.projects.push(project);
+    },
+    updateProjectId(id: string){
+      this.projectId = id;
     }
   },
 });

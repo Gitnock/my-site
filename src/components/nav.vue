@@ -10,20 +10,20 @@
         <router-link
           class="btn-div about-btn font-12 roboto-m clickable link-btn"
           to="/about"
-          >about WIP</router-link
+          >about</router-link
         >
         <div class="social-links">
           <a
             class="btn-div git-button clickable link-btn"
             href="https://github.com/Gitnock"
           >
-            <i class="bx bxl-github font-24"></i>
+            <em class="bx bxl-github font-24"></em>
           </a>
           <a
             class="btn-div clickable link-btn"
             href="https://dribbble.com/Mulira"
           >
-            <i class="bx bxl-dribbble font-24"></i>
+            <em class="bx bxl-dribbble font-24"></em>
           </a>
         </div>
         <div class="social-links-m">

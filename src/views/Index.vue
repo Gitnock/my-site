@@ -3,54 +3,71 @@
     <div class="p-top">
       <div class="top-container">
         <div class="top-content">
-          <div class="top-title roboto-mono-m">Hello World!</div>
+          <div class="top-title roboto-mono-m">Hi Am Enock</div>
           <div class="top-subtitle roboto-mono-m font-48">
-            A Software Developer with a passion for Design. WIP
+            A Software Developer with a passion for Simple Design.
           </div>
         </div>
       </div>
-      <div class="scroll-indicator-wrapper">
-        <h3 class="text-indicator font-16 roboto-mono-m">Featured Projects. WIP</h3>
+      <div class="scroll-indicator-wrapper" id="indicator">
+        <div class="link-mask">
+          <h3
+            class="text-indicator font-16 roboto-mono-m link-title1 link"
+          >
+            Featured Projects
+          </h3>
+          <h3
+            class="text-indicator font-16 roboto-mono-m link-title2 link clickable"
+            @click="goto"
+          >
+            scroll Down
+          </h3>
+        </div>
       </div>
     </div>
     <div class="index-bot">
       <div class="bot-container">
-        <div class="bot-content" v-for="project in testData" :key="project.id">
-          <div class="card-container" v-if="project.id % 2 === 0">
-            <div class="card card-line" :style="{ background: project.color }">
+        <div
+          class="bot-content"
+          v-for="(project, index) in store.getFeatured"
+          :key="project.id"
+        >
+          <div class="card-container" v-if="index % 2 === 0">
+            <div class="card card-line">
               <div class="card-top">
-                <div class="img">fgfg</div>
+                <img :src="project.icon" alt="" class="icon card-line" />
               </div>
               <div class="card-bot">
-                <div class="card-title roboto-mono-m">{{project.title}}</div>
+                <div class="card-title roboto-mono-m">{{ project.title }}</div>
                 <div class="card-desc roboto-mono-b">
-                  Information about the app I made
+                  {{ project.desc }}
                 </div>
-                <router-link to="/project/123" class="card-btn roboto-mono-l"
+                <router-link
+                  :to="`/project/${project.id}`"
+                  class="card-btn btn-div roboto-mono-l"
                   >Learn more</router-link
                 >
               </div>
             </div>
-            <div class="card" :style="{ background: project.color2 , backgroundImage: project.img}">
-              <img :src="project.img
-              " alt="" class="img">
+            <div class="card">
+              <img :src="project.src" alt="" class="img" />
             </div>
           </div>
           <div class="card-container" v-else>
-            <div class="card" :style="{ background: project.color2 }">
-              app image
+            <div class="card">
+              <img :src="project.src" alt="" class="img" />
             </div>
-            <div class="card card-line" :style="{ background: project.color }">
+            <div class="card card-line">
               <div class="card-top">
-                <div class="img">image</div>
+                <img :src="project.icon" alt="" class="icon card-line" />
               </div>
               <div class="card-bot">
-                <div class="card-title roboto-mono-m">app Title</div>
+                <div class="card-title roboto-mono-m">{{ project.title }}</div>
                 <div class="card-desc roboto-mono-b">
-                  Information about the app I made
+                  {{ project.desc }}
                 </div>
                 <router-link
-                  to="/project/123"
+                  :to="`/project/${project.id}`"
                   class="card-btn btn-div roboto-mono-l"
                   >Learn more</router-link
                 >
@@ -64,31 +81,25 @@
 </template>
 
 <script setup lang="ts">
-let testData = [
-  {
-    title: 'app Title',
-    desc:'',
-    color: '#eaf2fc',
-    color2: '#7997aa',
-    img: 'https://cdn.dribbble.com/userupload/3597739/file/original-896f235c9ee484a4b0d0276ae7d9f064.png?compress=1&resize=1024x768&vertical=center',
-    img2: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-magsafe-1-202111?wid=241&hei=384&fmt=jpeg&qlt=95&.v=1635286450000',
-    id: 0,
-  },
-  {
-    title: 'app Title',
-    desc:'',
-    color: '#eeeffe',
-    color2: '#8f8fad',
-    img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-airtag-2-202111?wid=209&hei=388&fmt=jpeg&qlt=95&.v=1635286450000',
-    img2: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/holiday-card-default-airtag-2-202111?wid=209&hei=388&fmt=jpeg&qlt=95&.v=1635286450000',
-    id: 1,
-  },
-];
+import { useStore } from '@/store/index';
+const goto = () => {
+  const element = document.getElementById('indicator');
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+  }
+};
+
+const store = useStore();
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/styles/flexbox.scss';
-@import '../assets/styles/init.scss';
+@import '@/assets/styles/flexbox.scss';
+@import '@/assets/styles/init.scss';
+@import '@/assets/styles/linkAnim.scss';
 /* TOP */
 .top-container {
   padding: 48px 0;
@@ -131,10 +142,16 @@ let testData = [
   scroll-snap-type: x mandatory;
 }
 
-.img{
+.img {
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+.icon {
+  height: 286px;
+  width: 286px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 .card {
   width: 442px;
@@ -149,13 +166,13 @@ let testData = [
   justify-content: space-between;
   overflow: hidden;
 }
-.card-line{
+.card-line {
   border: 4px solid black;
 }
 .card-top {
   display: flex;
-  width: 100%;
   justify-content: center;
+  padding: 42px 98px;
 }
 .card-bot {
   display: flex;
@@ -212,6 +229,10 @@ let testData = [
   }
   .bot-container {
     width: 100%;
+  }
+  .icon {
+    width: 143px;
+    height: 143px;
   }
 }
 </style>
