@@ -75,7 +75,7 @@
 </template>
 
 <script lang="ts" setup>
-import MobileNav from './FullscreenModel.vue';
+import MobileNav from '@/components/fullscreenModel.vue';
 import { ref } from 'vue';
 
 const showModal = ref(false);
