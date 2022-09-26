@@ -5,38 +5,31 @@
         <div class="info-content">
           <div class="font-52 roboto-mono-b info-title">Who am I</div>
           <div class="font-28 roboto-mono-m info-subtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            adipisci cum eaque?
+            {{ bio }}
           </div>
         </div>
-        <div class="stack-content">
-          <div class="stack-item flex-center">
-            <div class="font-16 roboto-mono-m">Vuejs</div>
-          </div>
-          <div class="stack-item flex-center">
-            <div class="font-16 roboto-mono-m">NextJs</div>
-          </div>
-          <div class="stack-item flex-center">
-            <div class="font-16 roboto-mono-m">ReactJs</div>
-          </div>
-          <div class="stack-item flex-center">
-            <div class="font-16 roboto-mono-m">PostgreSQL</div>
-          </div>
-          <div class="stack-item flex-center">
-            <div class="font-16 roboto-mono-m">User Experience (UX)</div>
-          </div>
-        </div>
+        <Skills :tags="skillTags" />
       </div>
-      <div class="scroll-indicator-wrapper">
-        <h3 class="text-indicator font-16 roboto-mono-m">Projects TimeLine</h3>
+      <div class="scroll-indicator-wrapper" id="indicator">
+        <div class="link-mask">
+          <h3 class="text-indicator font-16 roboto-mono-m link-title1 link">
+            Project Timeline
+          </h3>
+          <h3
+            class="text-indicator font-16 roboto-mono-m link-title2 link clickable"
+            @click="goto"
+          >
+            scroll Down
+          </h3>
+        </div>
       </div>
     </div>
     <div class="about-bot">
-      <div class="timeline">
-        <div class="timeline--display">
+      <div class="timeline" v-for="(project, index) in store.getProjects">
+        <div class="timeline--display" v-if="index % 2 === 0">
           <div class="timeline__component">
             <div class="timeline__date timeline__date--right roboto-mono-r">
-              
+              {{ toDate(project.date.toMillis()) }}
             </div>
           </div>
           <div class="timeline__middle">
@@ -44,30 +37,37 @@
           </div>
           <div class="timeline__component timeline__component--bg">
             <div class="timeline-date-container">
-              <div class="timeline-mobile-date roboto-mono-m">August 30, 2017</div>
+              <div class="timeline-mobile-date roboto-mono-m">
+                {{ toDate(project.date.toMillis()) }}
+              </div>
             </div>
-            <h2 class="timeline__title roboto-mono-m">Published First Video</h2>
+            <h2 class="timeline__title roboto-mono-m">{{ project.title }}</h2>
             <p class="timeline__paragraph roboto-mono-m">
-              My first YouTube video was a tutorial on how to build a
-              client-server sockets app in Java.
+              {{ project.desc }}
             </p>
-            <router-link to="/project/123" class="timeline__link roboto-mono-m">
+            <router-link
+              :to="`/project/${project.id}`"
+              class="timeline__link roboto-mono-m"
+            >
               learn more
             </router-link>
           </div>
         </div>
-        <div class="timeline--display">
+        <div class="timeline--display" v-else>
           <div class="timeline__component timeline__component--bg">
             <div class="timeline-date-container">
-              <div class="timeline-mobile-date roboto-mono-m">August 30, 2017</div>
+              <div class="timeline-mobile-date roboto-mono-m">
+                {{ toDate(project.date.toMillis()) }}
+              </div>
             </div>
-            <h2 class="timeline__title roboto-mono-m">5,000,000 Subscribers Q&A</h2>
+            <h2 class="timeline__title roboto-mono-m">{{ project.title }}</h2>
             <p class="timeline__paragraph roboto-mono-m">
-              To celebrate 5,000 subscribers, I published a video answering some
-              of the most popular questions which my viewers had asked me since
-              starting my YouTube channel.
+              {{ project.desc }}
             </p>
-            <router-link to="/project/123" class="timeline__link roboto-mono-m">
+            <router-link
+              :to="`/project/${project.id}`"
+              class="timeline__link roboto-mono-m"
+            >
               learn more
             </router-link>
           </div>
@@ -75,7 +75,9 @@
             <div class="timeline__point"></div>
           </div>
           <div class="timeline__component">
-            <div class="timeline__date roboto-mono-r">February 25, 2019</div>
+            <div class="timeline__date roboto-mono-r">
+              {{ toDate(project.date.toMillis()) }}
+            </div>
           </div>
         </div>
       </div>
@@ -83,10 +85,53 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useStore } from '@/store';
+import Skills from '@/components/skills.vue';
+import { onMounted, ref } from 'vue';
+import { doc, getDoc } from '@firebase/firestore';
+import { db } from '@/firebase';
+
+const store = useStore();
+let skillTags = ref<string[]>([]);
+let bio = ref('');
+const toDate = (ms: number) => {
+  return new Date(ms).toLocaleString('en-us', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+};
+
+const getBio = async () => {
+  const bioRef = doc(db, 'about', 'enock');
+  const docSnap = await getDoc(bioRef);
+  if (docSnap.exists()) {
+    const { skills, about } = docSnap.data();
+    bio.value = about;
+    skillTags.value.push(...skills);
+  } else {
+    // doc.data() will be undefined in this case
+  }
+};
+const goto = () => {
+  const element = document.getElementById('indicator');
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+  }
+};
+onMounted(() => {
+  getBio();
+});
+</script>
 
 <style lang="scss" scoped>
 @import '../assets/styles/flexbox.scss';
+@import '@/assets/styles/linkAnim.scss';
 /* TOP */
 .top-container {
   height: 100%;
@@ -117,12 +162,12 @@
 /* BOTTOM */
 .about-bot {
   height: 900px;
+  padding: 24px;
 }
 // timeline
 .timeline {
   margin: 0 auto;
   max-width: 975px;
-  padding: 25px;
   display: flex;
   flex-direction: column;
   font-family: 'Fira Sans', sans-serif;
@@ -142,7 +187,9 @@
   background: #f9fbfc;
   border-radius: 10px;
 }
-
+.timeline-mobile-date {
+  display: none;
+}
 /* LEAVE TILL LAST */
 .timeline__component--bottom {
   margin-bottom: 0;
@@ -170,7 +217,7 @@
   top: initial;
   bottom: 0;
 }
-.timeline__date{
+.timeline__date {
   font-size: 12px;
 }
 .timeline__date--right {
@@ -222,30 +269,30 @@
   }
 }
 @media screen and (max-width: 524px) {
-  
-  .timeline{
+  .timeline {
     gap: 12px;
   }
   .timeline--display {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.timeline__component{
-  margin: 0;
-}
-.timeline__point{
-  display: none;
-}
-.timeline__date{
-  display: none;
-}
-.timeline-date-container{
-  display: flex;
-  padding: 12px 0;
-}
-.timeline-mobile-date{
-  font-size: 12px;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .timeline__point {
+    display: none;
+  }
+  .timeline__date {
+    display: none;
+  }
+  .timeline-date-container {
+    display: flex;
+    padding: 12px 0;
+  }
+  .timeline-mobile-date {
+    display: block;
+    font-size: 12px;
+  }
+  .about-bot {
+    padding: 0;
+  }
 }
 </style>

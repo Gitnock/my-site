@@ -1,18 +1,26 @@
 <template>
   <div class="project-info">
-    <div class="top-title font-52 roboto-mono-b">App Title</div>
+    <div class="top-title font-52 roboto-mono-b">{{project?.title}}</div>
     <div class="top-subtitle font-28 roboto-mono-m">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate
-      dapibus convallis
+      {{project?.desc}}
     </div>
     <div class="skills-container">
-      <Skills />
+      <Skills :tags="project?.tags" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Skills from './skills.vue';
+import { PropType } from 'vue';
+import type Project from '@/dataTemplates/project';
+
+const props = defineProps({
+  project:{
+    type: Object as PropType<Project>,
+    }
+})
+
 </script>
 
 <style lang="scss" scoped>

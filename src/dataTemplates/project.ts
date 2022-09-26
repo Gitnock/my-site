@@ -1,11 +1,14 @@
+import { Timestamp } from "firebase/firestore";
+
 interface Project {
     id: string;
     title:string;
     desc: string;
-    isFeature: false;
+    isFeature: boolean;
     icon:string;
     src: string;
-    imgs:Array<string>;
-};
+    tags:Array<string>;
+    date: Timestamp;
+}
 
 export default Project;

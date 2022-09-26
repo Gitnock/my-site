@@ -1,18 +1,20 @@
 <template>
   <div class="stack-content">
-    <div class="stack-item flex-center">
-      <div class="font-16 roboto-mono-m">Vuejs</div>
-    </div>
-    <div class="stack-item flex-center">
-      <div class="font-16 roboto-mono-m">NextJs</div>
-    </div>
-    <div class="stack-item flex-center">
-      <div class="font-16 roboto-mono-m">ReactJs</div>
+    <div
+      class="stack-item flex-center"
+      v-for="(tag, index) in tags"
+      :key="index"
+    >
+      <div class="font-16 roboto-mono-m">{{ tag }}</div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  tags: Array,
+});
+</script>
 
 <style lang="scss" scoped>
 @import '../assets/styles/flexbox.scss';

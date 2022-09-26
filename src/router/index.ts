@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Index from '../views/Index.vue';
 import About from '../views/About.vue';
 import Project from '../views/Project.vue';
-import ComingSoon from '../views/ComingSoon.vue';
+import notFound from '../views/404.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,14 +20,19 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Project',
     component: Project,
   },
-  {
-    path: '/coming-soon',
-    name: 'ComingSoon',
-    component: ComingSoon,
-  },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: notFound},
 ];
 
 export default createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    if (to.hash) {
+      return {
+        selector: to.hash,
+        behavior: 'smooth',
+      }
+    }
+  }
 });

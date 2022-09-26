@@ -1,28 +1,25 @@
 <template>
   <div class="project-list">
-    <ProjectItemVue v-for="item in items" :key="item.id"/>
+    <ProjectItemVue v-for="(step, index) in steps" :key="index" :step="step"/>
   </div>
 </template>
 
 <script setup lang="ts">
 import ProjectItemVue from './ProjectItem.vue';
+import type Showcase from '@/dataTemplates/showcase';
+import { PropType } from 'vue';
 const props = defineProps({
-  items: {
-    type: Array,
-    default: () => [],
+  steps: {
+    type: [] as PropType<Showcase[]>,
   },
 });
-let items = [
-  { name: 'john', id: 0 },
-  { name: 'jane', id: 1 },
-];
 </script>
 
 <style lang="scss" scoped>
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 44px;
+  gap: 14px;
   margin: 0 12px 32px 12px;
 }
 </style>

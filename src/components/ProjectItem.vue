@@ -2,14 +2,21 @@
   <div class="project-item-container">
     <img
       class="project-img"
-      alt="image of project"
-      src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+      alt="image of project step"
+      :src="step?.img"
     />
-    <!-- <div class="font-12 roboto-mono-l">yo whats the food taste like homie</div> -->
+    <div class="font-12 roboto-mono-l desc" v-if="step?.desc">{{step.desc}}</div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { PropType } from 'vue';
+import type Showcase from '@/dataTemplates/showcase';
+  const props = defineProps({
+    step:{type: Object as PropType<Showcase>},
+
+  })
+</script>
 
 <style lang="scss" scoped>
 .project-item-container {
@@ -25,6 +32,10 @@
   border-radius: 8px;
   margin-bottom: 4px 0 0 0;
 }
+.desc{
+  margin: 12px;
+  color: black;
+}
 
 /* MOBILE */
 @media only screen and (max-width: 902px) {
@@ -34,7 +45,6 @@
   }
   .project-item-container{
     width: 100%;
-    background-color: antiquewhite;
   }
 }
 
