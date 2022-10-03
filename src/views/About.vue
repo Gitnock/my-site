@@ -91,7 +91,7 @@ import Skills from '@/components/skills.vue';
 import { onMounted, ref } from 'vue';
 import { doc, getDoc } from '@firebase/firestore';
 import { db } from '@/firebase';
-
+import User from '@/dataTemplates/user'
 const store = useStore();
 let skillTags = ref<string[]>([]);
 let bio = ref('');
@@ -107,7 +107,7 @@ const getBio = async () => {
   const bioRef = doc(db, 'about', 'enock');
   const docSnap = await getDoc(bioRef);
   if (docSnap.exists()) {
-    const { skills, about } = docSnap.data();
+    const { skills, about } = docSnap.data() as User;
     bio.value = about;
     skillTags.value.push(...skills);
   } else {
