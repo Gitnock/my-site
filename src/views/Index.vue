@@ -5,7 +5,7 @@
         <div class="top-content">
           <div class="top-title roboto-mono-m">Yo, Am Enock</div>
           <div class="top-subtitle roboto-mono-m font-48">
-            A Software Developer with a passion for Simple Design.
+            A Frontend engineer with a passion Design.
           </div>
         </div>
       </div>

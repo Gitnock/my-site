@@ -43,7 +43,7 @@
             </div>
             <h2 class="timeline__title roboto-mono-m">{{ project.title }}</h2>
             <p class="timeline__paragraph roboto-mono-m">
-              {{ project.desc }}
+              {{ project.short_desc }}
             </p>
             <router-link
               :to="`/project/${project.id}`"
@@ -62,7 +62,7 @@
             </div>
             <h2 class="timeline__title roboto-mono-m">{{ project.title }}</h2>
             <p class="timeline__paragraph roboto-mono-m">
-              {{ project.desc }}
+              {{ project.short_desc }}
             </p>
             <router-link
               :to="`/project/${project.id}`"

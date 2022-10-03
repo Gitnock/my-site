@@ -92,7 +92,7 @@ const showModal = ref(false);
   justify-content: space-between;
   align-items: center;
   width: 1359px;
-  padding: 0 24px;
+  padding: 12px 24px;
 }
 
 // left nav
