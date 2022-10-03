@@ -3,7 +3,7 @@
     <div class="p-top">
       <div class="top-container">
         <div class="top-content">
-          <div class="top-title roboto-mono-m">Hi Am Enock</div>
+          <div class="top-title roboto-mono-m">Yo, Am Enock</div>
           <div class="top-subtitle roboto-mono-m font-48">
             A Software Developer with a passion for Simple Design.
           </div>
@@ -40,7 +40,7 @@
               <div class="card-bot">
                 <div class="card-title roboto-mono-m">{{ project.title }}</div>
                 <div class="card-desc roboto-mono-b">
-                  {{ project.desc }}
+                  {{ project.short_desc }}
                 </div>
                 <router-link
                   :to="`/project/${project.id}`"
@@ -64,7 +64,7 @@
               <div class="card-bot">
                 <div class="card-title roboto-mono-m">{{ project.title }}</div>
                 <div class="card-desc roboto-mono-b">
-                  {{ project.desc }}
+                  {{ project.short_desc }}
                 </div>
                 <router-link
                   :to="`/project/${project.id}`"

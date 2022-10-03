@@ -16,7 +16,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useStore } from '@/store';
 
 import { onMounted, ref } from 'vue';
-import { collection, getDocs } from '@firebase/firestore';
+import { collection, getDocs, orderBy, query,  } from '@firebase/firestore';
 import { db } from '@/firebase';
 
 const store = useStore();
@@ -27,11 +27,11 @@ const showcase = ref<Showcase[]>([])
 
 const getShowcase = async () => {
   const showcaseRef = collection(db, `projects/${projectId}/showcase`);
-  const querySnapshot = await getDocs(showcaseRef);
+  const q = query(showcaseRef, orderBy("pos"))
+  const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    const {desc,img} = doc.data();
-    console.log("HELLO")
-    showcase.value.push({desc,img});
+    const showcaseData = doc.data() as Showcase;
+    showcase.value.push(showcaseData);
     
   });
 };
