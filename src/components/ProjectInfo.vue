@@ -4,14 +4,18 @@
     <div class="top-subtitle font-28 roboto-mono-m">
       {{project?.desc}}
     </div>
-    <div class="skills-container">
+    <div class="skills-container flex-center">
       <Skills :tags="project?.tags" />
+    </div>
+    <div class="test-links-container flex-center">
+      <TestLinksVue :website="project?.site" :github="project?.github"/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Skills from './skills.vue';
+import TestLinksVue from './TestLinks.vue';
 import { PropType } from 'vue';
 import type Project from '@/dataTemplates/project';
 
@@ -36,9 +40,15 @@ const props = defineProps({
   text-align: center;
   margin-bottom: 30px;
 }
-.skills-container {
+
+.flex-center{
   display: flex;
   justify-content: center;
-  margin-bottom: 78px;
+  }
+.skills-container {
+  // margin-bottom: 8px;
+}
+.test-links-container {
+  margin-bottom: 22px;
 }
 </style>
