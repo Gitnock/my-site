@@ -3,9 +3,9 @@
     <div class="p-top">
       <div class="top-container">
         <div class="top-content">
-          <div class="top-title roboto-mono-m">Yo, Am Enock</div>
+          <div class="top-title roboto-mono-m">Hello, Am Enock</div>
           <div class="top-subtitle roboto-mono-m font-48">
-            A Frontend engineer with a passion Design.
+            A Frontend engineer with a for passion design.
           </div>
         </div>
       </div>
